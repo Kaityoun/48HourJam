@@ -175,4 +175,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   bullet: {fileID: 4193618739835852413, guid: d46acf415a9b8f540a5a2a5a20457aa6, type: 3}
   bulletPosition: {fileID: 5492287485502359730}
-  dangerZone: 8
+  dangerZone: 20
