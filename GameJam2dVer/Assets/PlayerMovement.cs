@@ -1,4 +1,3 @@
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -11,12 +10,11 @@ public class PlayerController : MonoBehaviour
     public const float TrueForce = 8f;
     public float velocity;
     public int frameCount;
-    public float steeringForce = 3f;
+    public float steeringForce =3f;
     public float turningForce;
     public bool isAddingForce;
-    public GameObject PowerBox;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-
+    
     void Start()
     {
         frameCount = 1;
@@ -35,7 +33,7 @@ public class PlayerController : MonoBehaviour
         {
             turningForce = -45.0f;
             steeringForce = 3f;
-            rb.transform.Rotate(0, 0, turningForce * Time.deltaTime);
+            rb.transform.Rotate(0,0, turningForce * Time.deltaTime);
 
 
         }
@@ -63,11 +61,13 @@ public class PlayerController : MonoBehaviour
             rb.linearVelocity = Vector2.up * probelForce * Time.deltaTime;
         }
 
+ 
+
 
 
 
         rb.AddForce(Vector2.right * steeringForce * Time.deltaTime, ForceMode2D.Impulse);
-
+        
         steeringForce = 0;
         if (probelForce <= 0)
         {
@@ -75,30 +75,6 @@ public class PlayerController : MonoBehaviour
 
         }
     }
-
-    public void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == "PowerUp")
-        {
-            PowerBox.SetActive(false);
-            probelForce += 15f;
-            rb.linearVelocity = Vector2.up * probelForce * Time.deltaTime;
-            Debug.Log("Power-up initiated!" + probelForce);
-
-        }
-
-    }
-
-    public void OnCollisionExit2D(Collision2D collision)
-    {
-        while (velocity >= 5)
-        {
-            probelForce -= 10f;
-            rb.linearVelocity = Vector2.up * probelForce * Time.deltaTime;
-        }
-        Debug.Log("Power-up deactivated");
-    }
-    
     void FixedUpdate()
     {
 
