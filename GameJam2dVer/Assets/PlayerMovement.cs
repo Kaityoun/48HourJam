@@ -68,6 +68,7 @@ public class PlayerController : MonoBehaviour
             Debug.Log("Gameover");
 
         }
+        
     }
     void FixedUpdate()
     {
