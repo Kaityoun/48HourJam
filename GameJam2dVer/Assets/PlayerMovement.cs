@@ -3,6 +3,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
+    public static PlayerController instance;
     public Rigidbody2D rb;
     public float timer;
     public float probelForce = 8f;
@@ -12,10 +13,12 @@ public class PlayerController : MonoBehaviour
     public float steeringForce;
     public bool isAddingForce;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
+    
     void Start()
     {
         frameCount = 1;
         rb = GetComponent<Rigidbody2D>();
+        rb.gravityScale = 0;
     }
 
     // Update is called once per frame
@@ -27,12 +30,14 @@ public class PlayerController : MonoBehaviour
         timer += Time.deltaTime;
         if (Keyboard.current.dKey.isPressed)
         {
-            steeringForce = 2.0f;
+            steeringForce = 45.0f;
+            rb.transform.Rotate(0,0, -steeringForce * Time.deltaTime);
 
         }
         if (Keyboard.current.aKey.isPressed)
         {
-            steeringForce = -2.0f;
+            steeringForce = 45.0f;
+            rb.transform.Rotate(0, 0, steeringForce * Time.deltaTime);
         }
         if (Keyboard.current.spaceKey.isPressed && timer > 0.5)
         {
@@ -51,7 +56,8 @@ public class PlayerController : MonoBehaviour
             probelForce -= 1;
             rb.linearVelocity = Vector2.up * probelForce * Time.deltaTime;
         }
-        rb.AddForce(Vector2.right * steeringForce * Time.deltaTime, ForceMode2D.Impulse);
+        //rb.AddForce(Vector2.right * steeringForce * Time.deltaTime, ForceMode2D.Impulse);
+        
         steeringForce = 0;
         if (probelForce <= 0)
         {
@@ -63,6 +69,7 @@ public class PlayerController : MonoBehaviour
     {
 
     }
+    void GravitySling() { }
     void Nonsense()
     {
         if (frameCount == 1)
