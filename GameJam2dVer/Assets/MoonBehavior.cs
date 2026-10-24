@@ -16,14 +16,10 @@ public class MoonBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        
     }
 
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        Vector2 rocketLocation = other.transform.position;
-        Debug.Log("GRAVITY");
-    }
+    
     void OnTriggerStay2D(Collider2D other)
     {
         Vector2 rocketLocation = other.transform.position;
@@ -35,6 +31,7 @@ public class MoonBehavior : MonoBehaviour
         // this does not work as intended right now. just pushes the player rather then pulling it like gravity
 
     }
+
 
 
 }
