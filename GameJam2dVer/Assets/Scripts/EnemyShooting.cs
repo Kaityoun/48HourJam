@@ -3,15 +3,16 @@ using UnityEngine;
 public class EnemyShooting : MonoBehaviour
 {
     public GameObject bullet;
+    private GameObject player;
     public Transform bulletPosition;
 
     private float timer;
-
+    public float dangerZone;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
     // Update is called once per frame
@@ -19,11 +20,19 @@ public class EnemyShooting : MonoBehaviour
     {
         timer += Time.deltaTime;
 
-        if(timer >2)
+        float distance = Vector2.Distance(transform.position, player.transform.position);
+       // Debug.Log("distance:");
+        //Debug.Log(distance);
+
+        if(distance < dangerZone)
         {
-            timer = 0;
-            shoot();
+            if(timer >2)
+            {
+                timer = 0;
+                shoot();
+            }
         }
+        
     }
 
     void shoot()

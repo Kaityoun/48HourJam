@@ -6,6 +6,7 @@ public class pewpew : MonoBehaviour
     private Rigidbody2D rb;
 
     public float force;
+    private float timer;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -17,9 +18,23 @@ public class pewpew : MonoBehaviour
         rb.linearVelocity = new Vector2(direction.x, direction.y).normalized * force;
     }
 
-    // Update is called once per frame
+    //Update is called once per frame
     void Update()
     {
-        
+        timer += Time.deltaTime;
+
+        if (timer > 10)
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            Debug.Log("player hit!");
+            Destroy(gameObject);
+        }
     }
 }
