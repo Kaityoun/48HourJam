@@ -60,6 +60,12 @@ public class PlayerController : MonoBehaviour
             probelForce -= 1;
             rb.linearVelocity = Vector2.up * probelForce * Time.deltaTime;
         }
+
+ 
+
+
+
+
         rb.AddForce(Vector2.right * steeringForce * Time.deltaTime, ForceMode2D.Impulse);
         
         steeringForce = 0;
