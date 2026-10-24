@@ -1,9 +1,9 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerController : MonoBehaviour
+public class PlayerMovement : MonoBehaviour
 {
-    public static PlayerController instance;
+    public static PlayerMovement instance;
     public Rigidbody2D rb;
     public float timer;
     public float probelForce = 8f;
@@ -13,8 +13,9 @@ public class PlayerController : MonoBehaviour
     public float steeringForce =3f;
     public float turningForce;
     public bool isAddingForce;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+
     void Start()
     {
         frameCount = 1;
@@ -33,7 +34,7 @@ public class PlayerController : MonoBehaviour
         {
             turningForce = -45.0f;
             steeringForce = 3f;
-            rb.transform.Rotate(0,0, turningForce * Time.deltaTime);
+            rb.transform.Rotate(0, 0, turningForce * Time.deltaTime);
 
 
         }
@@ -43,6 +44,9 @@ public class PlayerController : MonoBehaviour
             steeringForce = -3f;
             rb.transform.Rotate(0, 0, turningForce * Time.deltaTime);
         }
+        
+        Mathf.Clamp(rb.transform.rotation.z, -45f, 45f);
+        // claming does not work
         if (Keyboard.current.spaceKey.isPressed && timer > 0.5)
         {
             if (probelForce < 8f)
@@ -51,6 +55,7 @@ public class PlayerController : MonoBehaviour
             }
             probelForce += 10f;
             rb.AddForce(Vector2.up * probelForce * Time.deltaTime, ForceMode2D.Impulse);
+ 
             timer = 0;
             isAddingForce = true;
             probelForce += 5;
@@ -58,6 +63,10 @@ public class PlayerController : MonoBehaviour
         if (isAddingForce == false && timer >= 3)
         {
             probelForce -= 1;
+            if (probelForce < 0)
+            {
+                probelForce = 1;
+            }
             rb.linearVelocity = Vector2.up * probelForce * Time.deltaTime;
         }
         rb.AddForce(Vector2.right * steeringForce * Time.deltaTime, ForceMode2D.Impulse);
@@ -73,6 +82,10 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
 
+    }
+    public void forceIncreseer()
+    {
+        probelForce += 1;
     }
     void GravitySling() { }
     void Nonsense()
