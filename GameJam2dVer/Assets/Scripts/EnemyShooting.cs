@@ -1,0 +1,33 @@
+using UnityEngine;
+
+public class EnemyShooting : MonoBehaviour
+{
+    public GameObject bullet;
+    public Transform bulletPosition;
+
+    private float timer;
+
+
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Start()
+    {
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        timer += Time.deltaTime;
+
+        if(timer >2)
+        {
+            timer = 0;
+            shoot();
+        }
+    }
+
+    void shoot()
+    {
+        Instantiate(bullet, bulletPosition.position, Quaternion.identity);
+    }
+}
