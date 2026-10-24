@@ -48,7 +48,7 @@ public class PlayerController : MonoBehaviour
             isAddingForce = true;
             probelForce++;
         }
-        if (isAddingForce == false && timer >= 5)
+        if (isAddingForce == false && timer >= 3)
         {
             probelForce -= 1;
             rb.linearVelocity = Vector3.up * probelForce * Time.deltaTime;
