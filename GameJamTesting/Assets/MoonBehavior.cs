@@ -23,15 +23,16 @@ public class MoonBehavior : MonoBehaviour
     {
         Vector3 rocketLocation = other.transform.position;
         Debug.Log("GRAVITY");
-        Debug.DrawRay(moonLocation,rocketLocation, Color.red);
     }
      void OnTriggerStay(Collider other)
     {
         Vector3 rocketLocation = other.transform.position;
         Debug.Log("GRAVITY");
         Rigidbody rb =other.GetComponent<Rigidbody>();
-        Vector3 distance = rb.position - moonLocation;
-        rb.AddForce(distance * 100 * Time.deltaTime);
+        // check tags for what the collition item is.
+        Vector3 distance = moonLocation - rb.transform.position;
+        rb.AddForce(distance * 20 * Time.deltaTime);
+        // this does not work as intended right now. just pushes the player rather then pulling it like gravity
 
     }
 

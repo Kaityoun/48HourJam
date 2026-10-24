@@ -29,12 +29,12 @@ public class PlayerController : MonoBehaviour
         timer += Time.deltaTime;
         if (Keyboard.current.dKey.isPressed)
         {
-            steeringForce = 1.0f;
+            steeringForce = 2.0f;
             
         }
         if (Keyboard.current.aKey.isPressed)
         {
-            steeringForce = -1.0f;
+            steeringForce = -2.0f;
         }
         if (Keyboard.current.spaceKey.isPressed && timer > 0.5)
         {
@@ -46,7 +46,7 @@ public class PlayerController : MonoBehaviour
             rb.AddForce(Vector3.up * probelForce * Time.deltaTime, ForceMode.Impulse);
             timer = 0;
             isAddingForce = true;
-            probelForce++;
+            probelForce += 2;
         }
         if (isAddingForce == false && timer >= 3)
         {
