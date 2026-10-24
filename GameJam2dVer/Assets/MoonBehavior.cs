@@ -31,6 +31,14 @@ public class MoonBehavior : MonoBehaviour
         // this does not work as intended right now. just pushes the player rather then pulling it like gravity
 
     }
+    private void OnTriggerStay(Collider other)
+    {
+        
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        
+    }
 
 
 
