@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
     public float steeringForce =3f;
     public float turningForce;
     public bool isAddingForce;
+    public GameObject PowerBox;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     
     void Start()
@@ -74,6 +75,28 @@ public class PlayerController : MonoBehaviour
             Debug.Log("Gameover");
 
         }
+    }
+    public void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "PowerUp")
+        {
+                PowerBox.SetActive(false);
+                probelForce += 30f;
+                rb.linearVelocity = Vector2.up * probelForce * Time.deltaTime;
+                Debug.Log("Power-up initiated!" + probelForce);
+                timer = Time.deltaTime;
+        }
+
+    }
+
+    public void OnCollisionExit2D(Collision2D collision)
+    {
+        Debug.Log("Power-up deactivated");
+        probelForce += 10f;
+        rb.AddForce(Vector2.up * probelForce * Time.deltaTime, ForceMode2D.Impulse);
+        timer = 0;
+        isAddingForce = true;
+        probelForce += 5;
     }
     void FixedUpdate()
     {
