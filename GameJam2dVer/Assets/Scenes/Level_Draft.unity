@@ -363,7 +363,7 @@ GameObject:
   - component: {fileID: 66701296}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -388,6 +388,7 @@ MonoBehaviour:
   steeringForce: 0
   turningForce: 0
   isAddingForce: 0
+  z: 0
 --- !u!50 &66701297
 Rigidbody2D:
   serializedVersion: 5
