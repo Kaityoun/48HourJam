@@ -28,10 +28,9 @@ public class pewpew : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
-    void OnTriggerEnter2D(Collider2D other)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player"))
         {
             Debug.Log("player hit!");
             Destroy(gameObject);
