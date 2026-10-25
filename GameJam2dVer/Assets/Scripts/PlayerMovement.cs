@@ -14,6 +14,7 @@ public class PlayerMovement : MonoBehaviour
     public float turningForce;
     public bool isAddingForce;
     MoonBehavior moonBehavior;
+    public GameObject PowerBox;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
@@ -91,6 +92,7 @@ public class PlayerMovement : MonoBehaviour
 
 
     }
+
     void FixedUpdate()
     {
 
