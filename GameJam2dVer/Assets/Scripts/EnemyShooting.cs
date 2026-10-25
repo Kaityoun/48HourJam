@@ -9,6 +9,7 @@ public class EnemyShooting : MonoBehaviour
     private float timer;
     public float dangerZone;
 
+    public AudioSource pew;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -37,6 +38,7 @@ public class EnemyShooting : MonoBehaviour
 
     void shoot()
     {
+        pew.Play();
         Instantiate(bullet, bulletPosition.position, Quaternion.identity);
     }
 }
