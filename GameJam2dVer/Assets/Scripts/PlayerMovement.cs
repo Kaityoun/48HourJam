@@ -15,6 +15,8 @@ public class PlayerMovement : MonoBehaviour
     public bool isAddingForce;
     MoonBehavior moonBehavior;
     public float z;
+    [SerializeField] public AudioClip rocketNoise;
+    public AudioSource rocketSource;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
@@ -26,6 +28,7 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         rb.gravityScale = 0;
         rb.AddForce(Vector2.up * 10f * Time.deltaTime, ForceMode2D.Impulse);
+        rocketSource = GetComponent<AudioSource>();
 
     }
 
@@ -37,7 +40,7 @@ public class PlayerMovement : MonoBehaviour
      
         velocity = rb.linearVelocity.magnitude;
         isAddingForce = false;
-
+        rocketSource.clip = rocketNoise;
         timer += Time.deltaTime;
         if (Keyboard.current.dKey.isPressed)
         {
@@ -74,6 +77,8 @@ public class PlayerMovement : MonoBehaviour
             }
             probelForce += 10f;
             rb.AddForce(Vector2.up * probelForce * Time.deltaTime, ForceMode2D.Impulse);
+            
+            rocketSource.Play();
  
             timer = 0;
             
@@ -86,8 +91,12 @@ public class PlayerMovement : MonoBehaviour
                 probelForce = 8f;
             }
         }
+        if (isAddingForce == false && timer >= 1) {
+            rocketSource.Pause();
+        }
         if (isAddingForce == false && timer >= 3)
         {
+            
             probelForce -= 0.2f;
             if (probelForce < 8f)
             {

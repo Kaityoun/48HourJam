@@ -8,11 +8,14 @@ public class EnemyShooting : MonoBehaviour
 
     private float timer;
     public float dangerZone;
+    [SerializeField] public AudioClip fireNoise;
+    public AudioSource fireSource;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+        fireSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -29,6 +32,8 @@ public class EnemyShooting : MonoBehaviour
             if(timer >2)
             {
                 timer = 0;
+                fireSource.clip = fireNoise;
+                fireSource.Play();
                 shoot();
             }
         }
