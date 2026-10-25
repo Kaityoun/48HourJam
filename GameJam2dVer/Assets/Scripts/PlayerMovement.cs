@@ -6,7 +6,7 @@ public class PlayerMovement : MonoBehaviour
     public static PlayerMovement instance;
     public Rigidbody2D rb;
     public float timer;
-    public float probelForce = 8f;
+    public float probelForce = 30f;
     public const float TrueForce = 8f;
     public float velocity;
     public int frameCount;
@@ -68,9 +68,9 @@ public class PlayerMovement : MonoBehaviour
         if (Keyboard.current.wKey.isPressed && timer > 0.5)
         {
             isAddingForce = true;
-            if (probelForce < 8f)
+            if (probelForce < 25f)
             {
-                probelForce = 8f;
+                probelForce = 25f;
             }
             probelForce += 10f;
             rb.AddForce(Vector2.up * probelForce * Time.deltaTime, ForceMode2D.Impulse);
