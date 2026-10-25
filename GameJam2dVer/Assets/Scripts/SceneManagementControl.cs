@@ -15,4 +15,9 @@ public class SceneManagementControl : MonoBehaviour
 #endif
         Application.Quit();
     }
+
+    public void OnMenuPress()
+    {
+        SceneManager.LoadScene("MenuScene");
+    }
 }
