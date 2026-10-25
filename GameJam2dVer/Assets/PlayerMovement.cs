@@ -13,9 +13,12 @@ public class PlayerMovement : MonoBehaviour
     public float steeringForce =3f;
     public float turningForce;
     public bool isAddingForce;
-    
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
 
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Awake()
+    {
+        instance = this;
+    }
     void Start()
     {
         frameCount = 1;
@@ -45,10 +48,11 @@ public class PlayerMovement : MonoBehaviour
             rb.transform.Rotate(0, 0, turningForce * Time.deltaTime);
         }
         
-        Mathf.Clamp(rb.transform.rotation.z, -45f, 45f);
+        Mathf.Clamp(transform.rotation.z, -45f, 45f);
         // claming does not work
         if (Keyboard.current.spaceKey.isPressed && timer > 0.5)
         {
+            isAddingForce = true;
             if (probelForce < 8f)
             {
                 probelForce = 8f;
@@ -57,7 +61,7 @@ public class PlayerMovement : MonoBehaviour
             rb.AddForce(Vector2.up * probelForce * Time.deltaTime, ForceMode2D.Impulse);
  
             timer = 0;
-            isAddingForce = true;
+            
             probelForce += 5;
         }
         if (isAddingForce == false && timer >= 3)
@@ -87,6 +91,11 @@ public class PlayerMovement : MonoBehaviour
     {
         probelForce += 1;
     }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        probelForce *= 0.9f* Time.deltaTime;
+    }
+
     void GravitySling() { }
     void Nonsense()
     {
