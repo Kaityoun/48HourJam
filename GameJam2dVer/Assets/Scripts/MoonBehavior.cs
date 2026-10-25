@@ -54,6 +54,7 @@ public class MoonBehavior : MonoBehaviour
         PlayerMovement.instance.forceIncreseer();
         PlayerMovement.instance.timer = 0;
         Debug.Log("Log");
+        other.transform.rotation = Quaternion.identity;
 
 
 
@@ -61,7 +62,20 @@ public class MoonBehavior : MonoBehaviour
      void OnTriggerExit2D(Collider2D other)
     {
         SlingshotIncrease = 1f;
-        inOrbit = false;
+       
+        string tag = gameObject.tag;
+        if (other.gameObject.CompareTag("Player")){
+            Rigidbody rb = other.GetComponent<Rigidbody>();
+            rb.AddForce(moonLocation - rb.transform.position);
+        }
+        if (other.gameObject.CompareTag("Projectile"))
+        {
+            Debug.Log("Test");
+        }
+
+
+
+            inOrbit = false;
     }
     
 
