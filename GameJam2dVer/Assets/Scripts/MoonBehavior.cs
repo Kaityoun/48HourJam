@@ -70,7 +70,9 @@ public class MoonBehavior : MonoBehaviour
         }
         if (other.gameObject.CompareTag("Projectile"))
         {
-            Debug.Log("Test");
+            Rigidbody rb = other.GetComponent<Rigidbody>();
+            rb.AddForce(moonLocation - rb.transform.position);
+            Debug.Log("Projectile in orbit");
         }
 
 
