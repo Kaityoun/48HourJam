@@ -67,9 +67,9 @@ public class PlayerMovement : MonoBehaviour
         if (isAddingForce == false && timer >= 3)
         {
             probelForce -= 1;
-            if (probelForce < 0)
+            if (probelForce < 8f)
             {
-                probelForce = 1;
+                probelForce = 8f;
             }
             rb.linearVelocity = Vector2.up * probelForce * Time.deltaTime;
         }
