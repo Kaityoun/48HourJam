@@ -10,6 +10,7 @@ public class MoonBehavior : MonoBehaviour
     public bool isLeft;
     public float SlingshotIncrease = 1f;
     public MoonBehavior instance;
+    public bool inOrbit;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     
     void Start()
@@ -17,15 +18,17 @@ public class MoonBehavior : MonoBehaviour
         cb = GetComponent<Collider2D>();
         moonLocation = cb.transform.position;
         float leftOfMoon = moonLocation.x;
+        inOrbit = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+       
     }
      void OnTriggerEnter2D(Collider2D other)
     {
+        inOrbit = true;
         if(other.transform.position.x < moonLocation.x) {
             isLeft = true;
         }
@@ -37,7 +40,7 @@ public class MoonBehavior : MonoBehaviour
      void OnTriggerStay2D(Collider2D other)
     {
         PlayerMovement PlayerMovement = GetComponent<PlayerMovement>();
-        PlayerMovement.instance.isAddingForce = true;
+        
         SlingshotIncrease++;
         if (isLeft)
         {
@@ -49,7 +52,8 @@ public class MoonBehavior : MonoBehaviour
         }
         
         PlayerMovement.instance.forceIncreseer();
-        PlayerMovement.instance.isAddingForce = true;
+        PlayerMovement.instance.timer = 0;
+        Debug.Log("Log");
 
 
 
@@ -57,6 +61,7 @@ public class MoonBehavior : MonoBehaviour
      void OnTriggerExit2D(Collider2D other)
     {
         SlingshotIncrease = 1f;
+        inOrbit = false;
     }
     
 

@@ -13,7 +13,7 @@ public class PlayerMovement : MonoBehaviour
     public float steeringForce =3f;
     public float turningForce;
     public bool isAddingForce;
-
+    MoonBehavior moonBehavior;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
@@ -24,11 +24,13 @@ public class PlayerMovement : MonoBehaviour
         frameCount = 1;
         rb = GetComponent<Rigidbody2D>();
         rb.gravityScale = 0;
+        
     }
 
     // Update is called once per frame
     void Update()
     {
+     
         velocity = rb.linearVelocity.magnitude;
         isAddingForce = false;
 
@@ -73,7 +75,8 @@ public class PlayerMovement : MonoBehaviour
             }
             rb.linearVelocity = Vector2.up * probelForce * Time.deltaTime;
         }
-        rb.AddForce(Vector2.right * steeringForce * Time.deltaTime, ForceMode2D.Impulse);
+       
+            rb.AddForce(Vector2.right * steeringForce * Time.deltaTime, ForceMode2D.Impulse);
         
         steeringForce = 0;
         if (probelForce <= 0)
@@ -81,7 +84,12 @@ public class PlayerMovement : MonoBehaviour
             Debug.Log("Gameover");
 
         }
-        
+        if (probelForce > 350f)
+        {
+            probelForce = 350f;
+        }
+
+
     }
     void FixedUpdate()
     {
@@ -90,6 +98,10 @@ public class PlayerMovement : MonoBehaviour
     public void forceIncreseer()
     {
         probelForce += 1;
+    }
+    public void setAddingForceTrue()
+    {
+        isAddingForce = true;
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
