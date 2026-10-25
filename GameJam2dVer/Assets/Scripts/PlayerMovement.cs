@@ -42,6 +42,10 @@ public class PlayerMovement : MonoBehaviour
         isAddingForce = false;
         rocketSource.clip = rocketNoise;
         timer += Time.deltaTime;
+        if ((velocity < 0))
+        {
+            probelForce *= 2;
+        }
         if (Keyboard.current.dKey.isPressed)
         {
             turningForce = -45.0f;
