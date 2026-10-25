@@ -65,12 +65,13 @@ public class MoonBehavior : MonoBehaviour
        
         string tag = gameObject.tag;
         if (other.gameObject.CompareTag("Player")){
-            Rigidbody rb = other.GetComponent<Rigidbody>();
+            Rigidbody2D rb = other.GetComponent<Rigidbody2D>();
             rb.AddForce(moonLocation - rb.transform.position);
         }
+
         if (other.gameObject.CompareTag("Projectile"))
         {
-            Rigidbody rb = other.GetComponent<Rigidbody>();
+            Rigidbody2D rb = other.GetComponent<Rigidbody2D>();
             rb.AddForce(moonLocation - rb.transform.position);
             Debug.Log("Projectile in orbit");
         }
