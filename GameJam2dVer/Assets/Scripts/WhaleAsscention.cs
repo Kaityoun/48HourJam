@@ -34,7 +34,7 @@ public class WhaleAsscention : MonoBehaviour
     }
     void DrawplayerCloser()
     {
-        player.AddForce((cd.transform.position - player.transform.position) * 10f);
+        player.AddForce((cd.transform.position - player.transform.position) * 50f);
         // increase drag
     }
     
