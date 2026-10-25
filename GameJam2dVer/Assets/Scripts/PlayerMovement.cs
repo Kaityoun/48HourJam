@@ -6,7 +6,7 @@ public class PlayerMovement : MonoBehaviour
     public static PlayerMovement instance;
     public Rigidbody2D rb;
     public float timer;
-    public float probelForce = 8f;
+    public float probelForce = 30f;
     public const float TrueForce = 8f;
     public float velocity;
     public int frameCount;
@@ -14,7 +14,7 @@ public class PlayerMovement : MonoBehaviour
     public float turningForce;
     public bool isAddingForce;
     MoonBehavior moonBehavior;
-    public GameObject PowerBox;
+    public float z;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
@@ -25,12 +25,15 @@ public class PlayerMovement : MonoBehaviour
         frameCount = 1;
         rb = GetComponent<Rigidbody2D>();
         rb.gravityScale = 0;
-        
+        rb.AddForce(Vector2.up * 10f * Time.deltaTime, ForceMode2D.Impulse);
+
     }
 
     // Update is called once per frame
     void Update()
     {
+        // CLAMING NOW WORKINGS WOOOOOOO
+        z = rb.transform.eulerAngles.z;
      
         velocity = rb.linearVelocity.magnitude;
         isAddingForce = false;
@@ -39,37 +42,53 @@ public class PlayerMovement : MonoBehaviour
         if (Keyboard.current.dKey.isPressed)
         {
             turningForce = -45.0f;
-            steeringForce = 3f;
-            rb.transform.Rotate(0, 0, turningForce * Time.deltaTime);
+            steeringForce = 5f;
+            if ( z < 47f || z > 315f)
+            {
+                rb.transform.Rotate(0, 0, turningForce * Time.deltaTime);
+                
+            }
+            
 
 
         }
         if (Keyboard.current.aKey.isPressed)
         {
             turningForce = 45.0f;
-            steeringForce = -3f;
-            rb.transform.Rotate(0, 0, turningForce * Time.deltaTime);
+            steeringForce = -5f;
+            if (z > 313f || z < 45f)
+            {
+                rb.transform.Rotate(0, 0, turningForce * Time.deltaTime);
+            }
+            
         }
         
-        Mathf.Clamp(transform.rotation.z, -45f, 45f);
-        // claming does not work
-        if (Keyboard.current.spaceKey.isPressed && timer > 0.5)
+        
+        
+        if (Keyboard.current.wKey.isPressed && timer > 0.5)
         {
             isAddingForce = true;
-            if (probelForce < 8f)
+            if (probelForce < 25f)
             {
-                probelForce = 8f;
+                probelForce = 25f;
             }
             probelForce += 10f;
             rb.AddForce(Vector2.up * probelForce * Time.deltaTime, ForceMode2D.Impulse);
  
             timer = 0;
             
-            probelForce += 5;
+            
+        }
+        if (Keyboard.current.sKey.isPressed) {
+            probelForce -= 3;
+            if (probelForce < 8f)
+            {
+                probelForce = 8f;
+            }
         }
         if (isAddingForce == false && timer >= 3)
         {
-            probelForce -= 1;
+            probelForce -= 0.2f;
             if (probelForce < 8f)
             {
                 probelForce = 8f;
@@ -85,14 +104,13 @@ public class PlayerMovement : MonoBehaviour
             Debug.Log("Gameover");
 
         }
-        if (probelForce > 350f)
+        if (probelForce > 150f)
         {
-            probelForce = 350f;
+            probelForce = 150f;
         }
 
 
     }
-
     void FixedUpdate()
     {
 
@@ -107,7 +125,7 @@ public class PlayerMovement : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        probelForce *= 0.9f* Time.deltaTime;
+        probelForce *= 0.3f * Time.deltaTime;
     }
 
     void GravitySling() { }

@@ -30,11 +30,14 @@ public class WhaleAsscention : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("YOU SUCK LOL. GET OUTPLAYED # NERF SHARK");
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            Debug.Log("YOU SUCK LOL. GET OUTPLAYED # NERF SHARK");
+        }
     }
     void DrawplayerCloser()
     {
-        player.AddForce((cd.transform.position - player.transform.position) * 10f);
+        player.AddForce((cd.transform.position - player.transform.position) * 50f);
         // increase drag
     }
     
