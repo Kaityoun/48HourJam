@@ -5,7 +5,7 @@ public class SceneManagementControl : MonoBehaviour
 {
     public void OnStartPress()
     {
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("Level_Draft");
         Debug.Log("WWW");
     }
 

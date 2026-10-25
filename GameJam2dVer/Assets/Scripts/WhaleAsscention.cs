@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class WhaleAsscention : MonoBehaviour
 {
@@ -33,6 +34,7 @@ public class WhaleAsscention : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             Debug.Log("YOU SUCK LOL. GET OUTPLAYED # NERF SHARK");
+            SceneManager.LoadScene("GameOverScene");
         }
     }
     void DrawplayerCloser()
