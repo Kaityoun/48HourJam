@@ -113,144 +113,12 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: HelixVine_Detailed_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 55
-        width: 207
-        height: 594
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 0a7b3b05fcfcd3ed0800000000000000
-      internalID: -2432559734391064672
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: HelixVine_Detailed_1
-      rect:
-        serializedVersion: 2
-        x: 50
-        y: 639
-        width: 102
-        height: 107
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 5b66c2712aef542a0800000000000000
-      internalID: -6753712094045247819
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: HelixVine_Detailed_2
-      rect:
-        serializedVersion: 2
-        x: 127
-        y: 633
-        width: 26
-        height: 29
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 4b56a42064dd7ed10800000000000000
-      internalID: 2154934239475951028
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: HelixVine_Detailed_3
-      rect:
-        serializedVersion: 2
-        x: 272
-        y: 468
-        width: 55
-        height: 54
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: fa84c3140a3542760800000000000000
-      internalID: 7432157232822503599
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: HelixVine_Detailed_4
-      rect:
-        serializedVersion: 2
-        x: 296
-        y: 454
-        width: 26
-        height: 20
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 7ae15ae249fe03400800000000000000
-      internalID: 302004594750594727
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: HelixVine_Detailed_5
-      rect:
-        serializedVersion: 2
-        x: 199
-        y: 0
-        width: 157
-        height: 461
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: f5dfb07d1c8a60c60800000000000000
-      internalID: 7784094556446522719
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
+    sprites: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: ca64bcd43d377d14aa4631c0594fb866
     internalID: 0
     vertices: []
     indices: 
@@ -258,14 +126,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
-    nameFileIdTable:
-      HelixVine_Detailed_0: -2432559734391064672
-      HelixVine_Detailed_1: -6753712094045247819
-      HelixVine_Detailed_2: 2154934239475951028
-      HelixVine_Detailed_3: 7432157232822503599
-      HelixVine_Detailed_4: 302004594750594727
-      HelixVine_Detailed_5: 7784094556446522719
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":1920.0,"y":384.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
