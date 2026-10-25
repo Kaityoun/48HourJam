@@ -1,0 +1,24 @@
+MOST IMPORTANT:
+    Paste these into credits:
+        -Laser Gun.wav by zazz.sound.design -- https://freesound.org/s/361471/ -- License: Creative Commons 0
+        -Distant Rumble by primeval_polypod -- https://freesound.org/s/159012/ -- License: Attribution 3.0
+        -Pop or plop by fthgurdy -- https://freesound.org/s/626465/ -- License: Creative Commons 0
+        -Outer Space Clip by AndreyPsyche -- https://freesound.org/s/483419/ -- License: Creative Commons 0
+        -Space Ambience.wav by Sonicfreak -- https://freesound.org/s/174450/ -- License: Creative Commons 0
+
+Information to Easily Set Up Sprites:
+    "Character.png":
+        -Atlas Size: 280px by 475px
+        -Idle Animation: frames 1, 2, and 3
+    "EntropyWhale.png":
+        -Atlas Size: 1920px by 384px
+        -Idle Animation: frames 1, 2, and 3
+        -Open Mouth Animation: frames 1, 4, and 5
+        -Close Mouth Animation: frames 5, 4, and 1
+        NOTE: "EntropyWhaleBackground.png" must be drawn behind this image
+    "EnemyShooter.png":
+        -Atlas Size: 375px by 416px
+        -Idle Animation: frames 1, 2, and 3
+        -Shoot Animation: frames 1, 4, 5, 6, and 1
+    "Helmet.png":
+        -Place this image around the head area of objects that use "CharacterPlaceholder.png" and "EnemyShooter.png"
