@@ -6,6 +6,7 @@ public class SceneManagementControl : MonoBehaviour
     public void OnStartPress()
     {
         SceneManager.LoadScene("SampleScene");
+        Debug.Log("WWW");
     }
 
     public void OnExit()
