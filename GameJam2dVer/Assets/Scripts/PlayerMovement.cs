@@ -88,7 +88,7 @@ public class PlayerMovement : MonoBehaviour
         }
         if (isAddingForce == false && timer >= 3)
         {
-            probelForce -= 1;
+            probelForce -= 0.2f;
             if (probelForce < 8f)
             {
                 probelForce = 8f;
@@ -125,7 +125,7 @@ public class PlayerMovement : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        probelForce *= 0.9f* Time.deltaTime;
+        probelForce *= 0.3f * Time.deltaTime;
     }
 
     void GravitySling() { }
